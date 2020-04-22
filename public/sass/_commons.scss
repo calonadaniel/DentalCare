@@ -1,0 +1,77 @@
+@import url('https://fonts.googleapis.com/css?family=Oswald&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Roboto&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Poppins&display=swap');
+
+body{ 
+    font-family: 'Poppins';
+    font-size:16px;
+    line-height: 1.8em;
+    color: #000000;
+}
+
+html, body {
+    height:100%;
+}
+
+
+thead, nav, .card-header, .navbar-nav .dropdown-menu .dropdown-item {
+    background:$color1-dentalcare;
+    color:$color2-dentalcare;
+}
+
+.navbar-nav .dropdown-menu  {
+    background:$color1-dentalcare;
+    color:$color2-dentalcare;
+}
+
+/*Iconos de galeria, ver, borrar, editar */
+.fa-camera, .fa-images {
+    color:$color6-dentalcare;
+}
+.fa-eye:before,.fa-history:before, .fa-list-ul:before {
+    color: $color1-dentalcare;
+}
+
+.fa-edit:before {
+    color:$color4-dentalcare;
+}
+//El dropzone estilo color rojo texo borrar incluido
+.fa-trash:before,.fa-times-circle,.dz-remove, .fa-trash-alt {
+    color:$color5-dentalcare;
+}
+
+/*Icono en expediente, resumen clinico, pagos*/
+.fa-search:before {
+    color: $color1-dentalcare;
+  }
+  
+  /*Icono nuevo expediente seccion expediente*/
+.fa-user-plus:before {
+    color: $color3-dentalcare;
+  }
+/*Icono nuevo pago secciones pagos e historialpagos*/
+.fa-money-check-alt {
+    color: $color3-dentalcare;
+  }
+  .fa-file-export:before {
+    color:$color1-dentalcare;
+}
+/*Icono nuevo resumen clinico seccion resumen clinico*/
+.fa-file-medical {
+    color: $color3-dentalcare;
+}
+
+/*Icono en la barra de navaegacion*/
+.fa-tooth {
+    color: $color2-dentalcare;
+    font-family: 'Poppins', !important;
+
+}
+
+/* Icono nueva imaen en seccion de imagenes de los expedientes */
+.fa-plus-circle {
+    color: $color3-dentalcare;
+    font-family: 'Poppins', !important;
+}
+
+

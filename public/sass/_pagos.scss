@@ -1,0 +1,40 @@
+
+/*Modal agregar pago*/
+#Modal-pago-add .modal-header {
+    background: $color3-dentalcare;
+    color: $color2-dentalcare;
+  }
+  #Modal-pago-add .modal-footer {
+    .btn-guardar{
+      background: $color3-dentalcare;
+      color: $color2-dentalcare;
+    }
+  
+  }
+
+  /*Estos modales se abren en la ruta dinamica de cada expediente para los respectivos registros depagos*/
+
+/*Modal editar registro pago*/
+#Modal-pago-edit .modal-header {
+  background: $color4-dentalcare;
+  color: $color2-dentalcare;
+}
+#Modal-pago-edit .modal-footer {
+  .btn-guardar{
+    background: $color4-dentalcare;
+    color: $color2-dentalcare;
+  }
+
+}
+/*Modal borrar registro de pago*/
+#Modal-pago-delete .modal-header {
+  background: $color5-dentalcare;
+  color: $color2-dentalcare;
+}
+#Modal-pago-delete .modal-footer {
+  .btn-borrar{
+    background: $color5-dentalcare;
+    color: $color2-dentalcare;
+  }
+
+}

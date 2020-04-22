@@ -1,0 +1,37 @@
+/*Modal agregar resumen clinico*/
+#Modal-resumenclinico-add .modal-header {
+    background: $color3-dentalcare;
+    color: $color2-dentalcare;
+  }
+  #Modal-resumenclinico-add .modal-footer {
+    .btn-guardar{
+      background: $color3-dentalcare;
+      color: $color2-dentalcare;
+    }
+  
+  }
+
+  /*Modal editar expediente*/
+#Modal-resumenclinico-edit .modal-header {
+    background: $color4-dentalcare;
+    color: $color2-dentalcare;
+  }
+  #Modal-resumenclinico-edit .modal-footer {
+    .btn-guardar{
+      background: $color4-dentalcare;
+      color: $color2-dentalcare;
+    }
+  
+  }
+  /*Modal borrar expediente*/
+  #Modal-resumenclinico-delete .modal-header {
+    background: $color5-dentalcare;
+    color: $color2-dentalcare;
+  }
+  #Modal-resumenclinico-delete .modal-footer {
+    .btn-borrar{
+      background: $color5-dentalcare;
+      color: $color2-dentalcare;
+    }
+  
+  }
