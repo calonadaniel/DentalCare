@@ -2,15 +2,14 @@ Dropzone.options.dropzone =
 {
     //type: 'POST',
     //url: 'fotos-add',
-    autoDiscover: false,
     dictDefaultMessage: "Arraste o de clic aqui para agregar imagenes",
     dictRemoveFile:"Borrar",
-    maxFilesize: 12,
+    maxFilesize: 10,
     acceptedFiles: ".jpeg,.jpg,.png,.gif",
     addRemoveLinks: true,
     timeout: 50000,
     autoProcessQueue: false,
-    parallelUploads: 20,
+    parallelUploads: 5,
     renameFile: function (file) {
         var dt = new Date();
         var time = dt.getTime();
