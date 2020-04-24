@@ -15,7 +15,7 @@ class Resumenclinicos extends Migration
     {
         Schema::create('resumenclinicos', function (Blueprint $table) {
         $table->bigIncrements('id_resumen');
-        $table->bigInteger('id_expediente')->default('0');
+        $table->bigInteger('id_expediente');
         $table->date('fecha')->default(now());
         $table->longtext('detalles')->nullable();
         $table->timestamps();
