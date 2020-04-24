@@ -16,7 +16,7 @@ class CreateFotosTable extends Migration
         Schema::create('fotos', function (Blueprint $table) {
             $table->bigIncrements('id_foto');
             $table->BigInteger('id_expediente');
-            $table->longtext('nombre')->default('');
+            $table->longtext('nombre');
             $table->longtext('detalles')->nullable();
             $table->timestamps();
         });
