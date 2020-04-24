@@ -62,7 +62,7 @@ Dropzone.options.dropzone =
     },
     queuecomplete: function() {
         this.on("queuecomplete", function (){
-            //window.location.replace(location.href);
+            window.location.replace(location.href);
         });
     },
 };
