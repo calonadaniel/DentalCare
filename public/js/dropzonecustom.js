@@ -1,7 +1,7 @@
 Dropzone.options.dropzone =
 {
-    type: 'POST',
-    url: 'fotos-add',
+    //type: 'POST',
+    //url: 'fotos-add',
     dictDefaultMessage: "Arraste o de clic aqui para agregar imagenes",
     dictRemoveFile:"Borrar",
     maxFilesize: 12,

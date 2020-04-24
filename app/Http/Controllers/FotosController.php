@@ -48,11 +48,13 @@ class FotosController extends Controller
             //$imageName = $image->getClientOriginalName();
             $imageName = preg_replace('/\s+/', '', $image->getClientOriginalName());
             $image->move(public_path('images/'.$id_expediente), $imageName);
-                
+    
+            $detalles = $request->detalles ?: ''; 
+            
             $fotos = array(     
                 'id_expediente' => $id_expediente,
-                'nombre'=>$imageName ?: 'nonametest',
-                'detalles'=>$detalles ?: 'detsilstest',
+                'nombre'=>$imageName,
+                'detalles'=>$detalles,
             );
             fotos::create($fotos);
             return response()->json(['success' => $imageName]);

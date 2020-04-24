@@ -8,7 +8,7 @@
         <div class="section" >
             <div class="container text-center">
                 <img  style="max-width:auto;
-                height:40%" src="\images\login2.jpg" alt="">
+                height:40%" src="\login_images\login2.jpg" alt="">
             </div>
         </div>
         {{--@include('components.navbar') --}}
