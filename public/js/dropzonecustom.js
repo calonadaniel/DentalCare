@@ -1,6 +1,6 @@
 Dropzone.options.dropzone =
 {
-    url: "fotos-add",
+    url: 'fotos-add',
     dictDefaultMessage: "Arraste o de clic aqui para agregar imagenes",
     dictRemoveFile:"Borrar",
     dictUploadFile:"Subiendo",
