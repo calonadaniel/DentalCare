@@ -48,10 +48,10 @@ class FotosController extends Controller
             //$imageName = $image->getClientOriginalName();
             $imageName = preg_replace('/\s+/', '', $image->getClientOriginalName());
 
-            $path = public_path('images/'.$id_expediente);
+            $path = public_path('images/'.$id_expediente.'/');
 
             if (!file_exists($path)) {
-                mkdir($path, 0775, true);
+                mkdir($path, 0755, true);
             }
 
             $image->move($path, $imageName);
