@@ -57,6 +57,7 @@ Dropzone.options.dropzone =
         //window.location.href = "fotos-" + id_expediente;
     },
     error: function (file, response) {
+        console.log(response);
         return false;
     },
     queuecomplete: function() {
