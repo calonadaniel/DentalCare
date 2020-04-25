@@ -7,7 +7,7 @@ Dropzone.options.dropzone =
     addRemoveLinks: true,
     timeout: 50000,
     autoProcessQueue: false,
-    parallelUploads: 5,
+    parallelUploads: 20,
     renameFile: function (file) {
         var dt = new Date();
         var time = dt.getTime();
@@ -17,8 +17,6 @@ Dropzone.options.dropzone =
     init: function() {
         var submitButton = document.querySelector("#btn_submitimages")
             myDropzone = this; // closure
-            myDropzone.type = 'POST',
-            myDropzone.url = 'fotos-add',
         submitButton.addEventListener("click", function() {
             myDropzone.processQueue();
         });

@@ -47,7 +47,14 @@ class FotosController extends Controller
         $image = $request->file('file');
             //$imageName = $image->getClientOriginalName();
             $imageName = preg_replace('/\s+/', '', $image->getClientOriginalName());
-            $image->move(public_path('images/'.$id_expediente), $imageName);
+
+            $path = public_path('images/'.$id_expediente);
+
+            if (!file_exists($path)) {
+                mkdir($path, 0775, true);
+            }
+
+            $image->move($path, $imageName);
     
             $detalles = $request->detalles ?: ''; 
             
