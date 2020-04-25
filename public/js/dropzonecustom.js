@@ -2,12 +2,12 @@ Dropzone.options.dropzone =
 {
     dictDefaultMessage: "Arraste o de clic aqui para agregar imagenes",
     dictRemoveFile:"Borrar",
-    maxFilesize: 10,
-    acceptedFiles: ".jpeg,.jpg,.png,.gif",
+    maxFilesize: 8,
+    acceptedFiles: ".jpeg,.jpg,.png,.gif,.mp4",
     addRemoveLinks: true,
     timeout: 50000,
     autoProcessQueue: false,
-    parallelUploads: 3,
+    parallelUploads: 4,
     renameFile: function (file) {
         var dt = new Date();
         var time = dt.getTime();
