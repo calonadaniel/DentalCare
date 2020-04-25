@@ -1,7 +1,5 @@
 Dropzone.options.dropzone =
 {
-    type: 'POST',
-    url: 'fotos-add',
     dictDefaultMessage: "Arraste o de clic aqui para agregar imagenes",
     dictRemoveFile:"Borrar",
     maxFilesize: 10,
@@ -19,9 +17,9 @@ Dropzone.options.dropzone =
     init: function() {
         var submitButton = document.querySelector("#btn_submitimages")
             myDropzone = this; // closure
-    
-        submitButton.addEventListener("click", function() {
+            myDropzone.type = 'POST',
             myDropzone.url = 'fotos-add',
+        submitButton.addEventListener("click", function() {
             myDropzone.processQueue();
         });
         // You might want to show the submit button only when 
