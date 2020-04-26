@@ -46,25 +46,55 @@ class FotosController extends Controller
         
         $image = $request->file('file');
             //$imageName = $image->getClientOriginalName();
-            $imageName = preg_replace('/\s+/', '', $image->getClientOriginalName());
+        $imageName = preg_replace('/\s+/', '', $image->getClientOriginalName());
 
-            $path = public_path('images/'.$id_expediente);
+        $path = public_path('images/'.$id_expediente);
 
-            /*if (!file_exists($path)) {
-                mkdir($path, 0777, true);
-            } */
+        /*if (!file_exists($path)) {
+            mkdir($path, 0777, true);
+        } */
 
-            $image->move($path, $imageName);
+        $image->move($path, $imageName);
             
-            $fotos = array(     
-                'id_expediente' => $id_expediente,
-                'nombre'=>$imageName,
-                'detalles'=>$request->detalles ?: '',
-            );
-            fotos::create($fotos);
-            return response()->json(['success' => $imageName]);
+        $fotos = array(     
+            'id_expediente' => $id_expediente,
+            'nombre'=>$imageName,
+            'detalles'=>$request->detalles ?: '',
+        );
+        fotos::create($fotos);
 
-            //return redirect()->route('fotos.index',$id_expediente);
+                //Compress Image Code Here
+                $filepath = public_path('images/'.$id_expediente.'/'.$imageName);
+                $mime = mime_content_type($filepath);
+                $output = new \CURLFile($filepath, $mime, $imageName);
+                $data = ["files" => $output];
+                
+                $ch = curl_init();
+                curl_setopt($ch, CURLOPT_URL, 'http://api.resmush.it/?qlty=40');
+                curl_setopt($ch, CURLOPT_POST,1);
+                curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+                curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, 5);
+                curl_setopt($ch, CURLOPT_POSTFIELDS, $data);
+                $result = curl_exec($ch);
+                if (curl_errno($ch)) {
+                    $result = curl_error($ch);
+                }
+                curl_close ($ch);
+                
+                $arr_result = json_decode($result);
+                
+                // store the optimized version of the image
+                $ch = curl_init($arr_result->dest);
+                $fp = fopen($filepath, 'wb');
+                curl_setopt($ch, CURLOPT_FILE, $fp);
+                curl_setopt($ch, CURLOPT_HEADER, 0);
+                curl_exec($ch);
+                curl_close($ch);
+                fclose($fp);
+
+        return response()->json(['success' => $imageName]);
+
+        //return redirect()->route('fotos.index',$id_expediente);
         /*$imageUpload = new Fotos();
         $imageUpload->nombre = $imageName;
         $imageUpload->id_expediente = $id_expediente;

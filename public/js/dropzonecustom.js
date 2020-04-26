@@ -2,8 +2,8 @@ Dropzone.options.dropzone =
 {
     dictDefaultMessage: "Arraste o de clic aqui para agregar imagenes",
     dictRemoveFile:"Borrar",
-    maxFilesize: 8,
-    acceptedFiles: ".jpeg,.jpg,.png,.gif,.mp4",
+    maxFilesize: 10,
+    acceptedFiles: ".jpeg,.jpg,.png,.gif",
     addRemoveLinks: true,
     timeout: 50000,
     autoProcessQueue: false,

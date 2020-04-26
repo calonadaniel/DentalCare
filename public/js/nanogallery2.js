@@ -1,6 +1,6 @@
     $("#nanogallery2").nanogallery2({
-      thumbnailHeight:  '250',
-      thumbnailWidth:   'auto',
+      thumbnailHeight:  '200',
+      thumbnailWidth:   '200',
       thumbnailSelectable:true,
       //thumbnailHoverEffect2: 'toolsAppear|labelSlideUp|imageScale150',
       thumbnailHoverEffect2:  null,
