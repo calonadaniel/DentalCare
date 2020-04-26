@@ -92,7 +92,7 @@ class FotosController extends Controller
                 curl_close($ch);
                 fclose($fp);
 
-        return response()->json(['success' => $imageName]);
+        return response()->json(['success' => $imageName, 'subida'=>$result]);
 
         //return redirect()->route('fotos.index',$id_expediente);
         /*$imageUpload = new Fotos();
