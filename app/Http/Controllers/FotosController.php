@@ -50,9 +50,9 @@ class FotosController extends Controller
 
             $path = public_path('images/'.$id_expediente);
 
-            if (!file_exists($path)) {
+            /*if (!file_exists($path)) {
                 mkdir($path, 0777, true);
-            }
+            } */
 
             $image->move($path, $imageName);
             
