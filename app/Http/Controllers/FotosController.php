@@ -70,7 +70,7 @@ class FotosController extends Controller
                 $data = ["files" => $output];
                 
                 $ch = curl_init();
-                curl_setopt($ch, CURLOPT_URL, 'http://api.resmush.it/?qlty=40');
+                curl_setopt($ch, CURLOPT_URL, 'http://api.resmush.it/?qlty=20');
                 curl_setopt($ch, CURLOPT_POST,1);
                 curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
                 curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, 5);
