@@ -5,7 +5,6 @@ namespace App\Http\Controllers;
 use App\fotos;
 use App\expediente;
 use Illuminate\Http\Request;
-
 class FotosController extends Controller
 {
     /**
@@ -61,39 +60,68 @@ class FotosController extends Controller
             'nombre'=>$imageName,
             'detalles'=>$request->detalles ?: '',
         );
+
         fotos::create($fotos);
 
-                //Compress Image Code Here
-                $filepath = public_path('images/'.$id_expediente.'/'.$imageName);
-                $mime = mime_content_type($filepath);
-                $output = new \CURLFile($filepath, $mime, $imageName);
-                $data = ["files" => $output];
-                
-                $ch = curl_init();
-                curl_setopt($ch, CURLOPT_URL, 'http://api.resmush.it/?qlty=20');
-                curl_setopt($ch, CURLOPT_POST,1);
-                curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
-                curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, 5);
-                curl_setopt($ch, CURLOPT_POSTFIELDS, $data);
-                $result = curl_exec($ch);
-                if (curl_errno($ch)) {
-                    $result = curl_error($ch);
-                }
-                curl_close ($ch);
-                
-                $arr_result = json_decode($result);
-                
-                // store the optimized version of the image
-                $ch = curl_init($arr_result->dest);
-                $fp = fopen($filepath, 'wb');
-                curl_setopt($ch, CURLOPT_FILE, $fp);
-                curl_setopt($ch, CURLOPT_HEADER, 0);
-                curl_exec($ch);
-                curl_close($ch);
-                fclose($fp);
-
-        return response()->json(['success' => $imageName, 'subida'=>$result]);
-
+        /*Resmush Compressor. The issue all images uploaded and compressed where with bad orientation but 
+        everythig else worked*/
+        //Compress Image Code Here 
+        /*$filepath = public_path('images/'.$id_expediente.'/'.$imageName);
+        $mime = mime_content_type($filepath);
+        $output = new \CURLFile($filepath, $mime, $imageName);
+        $data = ["files" => $output];
+        
+        $ch = curl_init();
+        curl_setopt($ch, CURLOPT_URL, 'http://api.resmush.it/?qlty=15');
+        curl_setopt($ch, CURLOPT_URL, 'http://api.resmush.it/?exif=true');
+        curl_setopt($ch, CURLOPT_POST,1);
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+        curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, 9);
+        curl_setopt($ch, CURLOPT_POSTFIELDS, $data);
+        $result = curl_exec($ch);
+        if (curl_errno($ch)) {
+            $result = curl_error($ch);
+        }
+        curl_close ($ch);
+        
+        $arr_result = json_decode($result);
+        
+        // store the optimized version of the image
+        $ch = curl_init($arr_result->dest);
+        $fp = fopen($filepath, 'wb');
+        curl_setopt($ch, CURLOPT_FILE, $fp);
+        curl_setopt($ch, CURLOPT_HEADER, 0);
+        curl_exec($ch);
+        curl_close($ch);
+        fclose($fp);*/
+        //Compress Image Code Here
+        //$filepath = public_path('storage/profile_images/'.$filenametostore);
+        //require_once("vendor/autoload.php");
+        //Compress Image Code Here
+        
+        //Using TinyJPG-PNG php library. Max of 500 per month.
+        $filepath = public_path('images/'.$id_expediente.'/'.$imageName);
+        try {
+            \Tinify\setKey("6mZ6WX7KMbdFF7LWrnHP4bXTLlrXML8L"); // Alternatively, you can store your key in .env file.
+            $source = \Tinify\fromFile($filepath);
+            $source->toFile($filepath);
+        } catch(\Tinify\AccountException $e) {
+            // Verify your API key and account limit.
+            return redirect()->route('fotos.index',$id_expediente)->with('error', $e->getMessage());
+        } catch(\Tinify\ClientException $e) {
+            // Check your source image and request options.
+            return redirect()->route('fotos.index',$id_expediente)->with('error', $e->getMessage());
+        } catch(\Tinify\ServerException $e) {
+            // Temporary issue with the Tinify API.
+            return redirect()->route('fotos.index',$id_expediente)->with('error', $e->getMessage());
+        } catch(\Tinify\ConnectionException $e) {
+            // A network connection error occurred.
+            return redirect()->route('fotos.index',$id_expediente)->with('error', $e->getMessage());
+        } catch(Exception $e) {
+            // Something else went wrong, unrelated to the Tinify API.
+            return redirect()->route('fotos.index',$id_expediente)->with('error', $e->getMessage());
+        }
+        return response()->json(['success' => $imageName]);
         //return redirect()->route('fotos.index',$id_expediente);
         /*$imageUpload = new Fotos();
         $imageUpload->nombre = $imageName;

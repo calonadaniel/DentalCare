@@ -2,12 +2,17 @@ Dropzone.options.dropzone =
 {
     dictDefaultMessage: "Arraste o de clic aqui para agregar imagenes",
     dictRemoveFile:"Borrar",
+    dictCancelUpload: "Cancelar subida ",
+    dictFileTooBig: "El archivo seleccionado es muy grande ({{filesize}}MiB). Tamaño máximo permitido: {{maxFilesize}}MiB",
+    dictCancelUploadConfirmation: "¿Esta seguro que desea cancelar subida de este archivo?",
+    dictMaxFilesExceeded: "Maximo de 5 archivos por subida",
     maxFilesize: 10,
     acceptedFiles: ".jpeg,.jpg,.png,.gif",
     addRemoveLinks: true,
-    timeout: 50000,
+    timeout: 90000,
     autoProcessQueue: false,
-    parallelUploads: 4,
+    parallelUploads: 2,
+    maxFiles : 5,
     renameFile: function (file) {
         var dt = new Date();
         var time = dt.getTime();
@@ -46,7 +51,7 @@ Dropzone.options.dropzone =
         });
         var fileRef;
         return (fileRef = file.previewElement) != null ?
-            fileRef.parentNode.removeChild(file.previewElement) : void 0;
+        fileRef.parentNode.removeChild(file.previewElement) : void 0;
     },
 
     success: function (file, response) {
@@ -63,4 +68,16 @@ Dropzone.options.dropzone =
             window.location.replace(location.href);
         });
     },
+    maxfilesexceeded: function(file) {
+        this.on("maxfilesexceeded", function (){
+            alert("Maximo de 5 archivos por subida.");
+            this.removeFile(file);
+        });
+    },
+    dictFileTooBig: function(file) {
+        this.on("dictFileTooBig", function() {
+            alert("El archivo seleccionado es muy grande ({{filesize}}MiB). Tamaño máximo permitido: {{maxFilesize}}MiB");
+            this.removeFile(file)
+        });
+    }
 };
