@@ -19,12 +19,6 @@ thead, nav, .card-header, .navbar-nav .dropdown-menu .dropdown-item {
     color:$color2-dentalcare;
 }
 
-.collapsing {
-    -webkit-transition: none !important;
-    transition: none !important;
-    display: none !important;
-}
-
 .navbar-nav .dropdown-menu  {
     background:$color1-dentalcare;
     color:$color2-dentalcare;

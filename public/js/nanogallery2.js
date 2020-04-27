@@ -9,7 +9,7 @@
       thumbnailDisplayTransition: 'none',
       //galleryDisplayMode: 'rows', 
       //galleryDisplayMoreStep: '2',
-      //thumbnailSliderDelay: '0',
+      thumbnailSliderDelay: '0',
       //galleryPaginationMode: 'dots',
       //galleryMaxRows: '2',     
       thumbnailLabel: {
