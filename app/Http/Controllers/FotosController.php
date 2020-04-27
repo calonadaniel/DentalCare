@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\fotos;
 use App\expediente;
 use Illuminate\Http\Request;
+use Image;
 class FotosController extends Controller
 {
     /**
@@ -53,7 +54,17 @@ class FotosController extends Controller
             mkdir($path, 0777, true);
         } */
 
-        $image->move($path, $imageName);
+        $width = 1280; // your max width
+        $height = 1280; // your max height
+        $img = Image::make($image);
+        $img->orientate();
+        $img->height() > $img->width() ? $width=null : $height=null;
+        $img->resize($width, $height, function ($constraint) {
+            $constraint->aspectRatio();
+        });
+
+        //$img->move($path, $imageName);
+        $img->save($path.'/'.$imageName, 80);
             
         $fotos = array(     
             'id_expediente' => $id_expediente,
@@ -93,11 +104,10 @@ class FotosController extends Controller
         curl_setopt($ch, CURLOPT_HEADER, 0);
         curl_exec($ch);
         curl_close($ch);
-        fclose($fp); */
+        fclose($fp); */        
 
         //Using TinyJPG-PNG php library. Max of 500 per month.
-        
-        $filepath = public_path('images/'.$id_expediente.'/'.$imageName);
+        /*$filepath = public_path('images/'.$id_expediente.'/'.$imageName);
         try {
             \Tinify\setKey("6mZ6WX7KMbdFF7LWrnHP4bXTLlrXML8L"); // Alternatively, you can store your key in .env file.
             $source = \Tinify\fromFile($filepath);
@@ -117,7 +127,7 @@ class FotosController extends Controller
         } catch(Exception $e) {
             // Something else went wrong, unrelated to the Tinify API.
             return redirect()->route('fotos.index',$id_expediente)->with('error', $e->getMessage());
-        } 
+        } */
         return response()->json(['success' => $imageName]);
         //return redirect()->route('fotos.index',$id_expediente);
         /*$imageUpload = new Fotos();

@@ -7,6 +7,7 @@
       thumbnailBorderVertical: '0',
       thumbnailBorderHorizontal: '0',
       thumbnailDisplayTransition: 'none',
+      thumbnailDisplayOutsideScreen:'false',
       //galleryDisplayMode: 'rows', 
       //galleryDisplayMoreStep: '2',
       thumbnailSliderDelay: '0',
