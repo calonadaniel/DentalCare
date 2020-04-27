@@ -1,6 +1,6 @@
     $("#nanogallery2").nanogallery2({
-      thumbnailWidth:  '300 XS150 LA300 XL500',
-      thumbnailHeight: '200 XS150 LA300 XL500',
+      thumbnailWidth:  '150 XS150 LA300 XL500',
+      thumbnailHeight: '150 XS150 LA300 XL500',
       thumbnailSelectable:true,
       //thumbnailHoverEffect2: 'toolsAppear|labelSlideUp|imageScale150',
       thumbnailHoverEffect2:  null,
