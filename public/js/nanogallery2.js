@@ -1,17 +1,17 @@
     $("#nanogallery2").nanogallery2({
       thumbnailWidth:  '150 XS150 LA300 XL500',
-      thumbnailHeight: '150 XS150 LA300 XL500',
+      thumbnailHeight: '200 XS200 LA350 XL550',
       thumbnailSelectable:true,
       //thumbnailHoverEffect2: 'toolsAppear|labelSlideUp|imageScale150',
       thumbnailHoverEffect2:  null,
       thumbnailBorderVertical: '0',
       thumbnailBorderHorizontal: '0',
       thumbnailDisplayTransition: 'none',
-      galleryDisplayMode: 'moreButton', 
-      galleryDisplayMoreStep: '2',
-      thumbnailSliderDelay: '0',
-     // galleryPaginationMode: 'dots',
-      galleryMaxRows: '1',     
+      //galleryDisplayMode: 'rows', 
+      //galleryDisplayMoreStep: '2',
+      //thumbnailSliderDelay: '0',
+      //galleryPaginationMode: 'dots',
+      //galleryMaxRows: '2',     
       thumbnailLabel: {
         display: false
       },

@@ -17,6 +17,11 @@ thead, nav, .card-header, .navbar-nav .dropdown-menu .dropdown-item {
   color: white !important;
 }
 
+.collapsing {
+  transition: none !important;
+  display: none !important;
+}
+
 .navbar-nav .dropdown-menu {
   background: #214188 !important;
   color: white !important;
