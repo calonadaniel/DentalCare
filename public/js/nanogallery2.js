@@ -1,6 +1,6 @@
     $("#nanogallery2").nanogallery2({
-      thumbnailHeight:  '150',
-      thumbnailWidth:   '150',
+      thumbnailWidth:  '300 XS150 LA300 XL500',
+      thumbnailHeight: '200 XS150 LA300 XL500',
       thumbnailSelectable:true,
       //thumbnailHoverEffect2: 'toolsAppear|labelSlideUp|imageScale150',
       thumbnailHoverEffect2:  null,
@@ -9,6 +9,7 @@
       thumbnailDisplayTransition: 'none',
       galleryDisplayMode: 'moreButton', 
       galleryDisplayMoreStep: '2',
+      thumbnailSliderDelay: '0',
      // galleryPaginationMode: 'dots',
       galleryMaxRows: '1',     
       thumbnailLabel: {
