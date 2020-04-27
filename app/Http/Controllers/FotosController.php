@@ -93,13 +93,10 @@ class FotosController extends Controller
         curl_setopt($ch, CURLOPT_HEADER, 0);
         curl_exec($ch);
         curl_close($ch);
-        fclose($fp);*/
-        //Compress Image Code Here
-        //$filepath = public_path('storage/profile_images/'.$filenametostore);
-        //require_once("vendor/autoload.php");
-        //Compress Image Code Here
-        
+        fclose($fp); */
+
         //Using TinyJPG-PNG php library. Max of 500 per month.
+        
         $filepath = public_path('images/'.$id_expediente.'/'.$imageName);
         try {
             \Tinify\setKey("6mZ6WX7KMbdFF7LWrnHP4bXTLlrXML8L"); // Alternatively, you can store your key in .env file.
@@ -120,7 +117,7 @@ class FotosController extends Controller
         } catch(Exception $e) {
             // Something else went wrong, unrelated to the Tinify API.
             return redirect()->route('fotos.index',$id_expediente)->with('error', $e->getMessage());
-        }
+        } 
         return response()->json(['success' => $imageName]);
         //return redirect()->route('fotos.index',$id_expediente);
         /*$imageUpload = new Fotos();

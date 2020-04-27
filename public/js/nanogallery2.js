@@ -1,12 +1,16 @@
     $("#nanogallery2").nanogallery2({
-      thumbnailHeight:  '200',
-      thumbnailWidth:   '200',
+      thumbnailHeight:  '150',
+      thumbnailWidth:   '150',
       thumbnailSelectable:true,
       //thumbnailHoverEffect2: 'toolsAppear|labelSlideUp|imageScale150',
       thumbnailHoverEffect2:  null,
       thumbnailBorderVertical: '0',
       thumbnailBorderHorizontal: '0',
-      thumbnailDisplayTransition: 'none',      
+      thumbnailDisplayTransition: 'none',
+      galleryDisplayMode: 'moreButton', 
+      galleryDisplayMoreStep: '2',
+     // galleryPaginationMode: 'dots',
+      galleryMaxRows: '1',     
       thumbnailLabel: {
         display: false
       },

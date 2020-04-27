@@ -11,7 +11,7 @@ Dropzone.options.dropzone =
     addRemoveLinks: true,
     timeout: 90000,
     autoProcessQueue: false,
-    parallelUploads: 2,
+    parallelUploads: 5,
     maxFiles : 5,
     renameFile: function (file) {
         var dt = new Date();
