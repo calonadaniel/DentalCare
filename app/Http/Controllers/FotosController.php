@@ -6,6 +6,7 @@ use App\fotos;
 use App\expediente;
 use Illuminate\Http\Request;
 use Image;
+use File;
 class FotosController extends Controller
 {
     /**
@@ -53,6 +54,9 @@ class FotosController extends Controller
         /*if (!file_exists($path)) {
             mkdir($path, 0777, true);
         } */
+        if (!File::exists($path)) {
+            File::makeDirectory($path, 0775, true, true);
+        }
 
         $width = 1280; // your max width
         $height = 1280; // your max height
