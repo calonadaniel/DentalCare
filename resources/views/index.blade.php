@@ -3,7 +3,7 @@
 
     <div class="section" >
         <div class="container" >
-            <div class="row my-3 d-flex ml-auto mr-auto">
+            <div class="row my-3 ml-auto mr-auto">
                 <i class="fas fa-search fa-2x " aria-hidden="true" placeholder="Expediente..."></i>
                 <input style="border:none;" type="text" id="myInput" onkeyup="myFunction()"  >
             </div>
