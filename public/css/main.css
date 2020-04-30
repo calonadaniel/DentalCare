@@ -12,6 +12,11 @@ html, body {
   height: 100%;
 }
 
+.active-search input.active-line[type=text]:focus:not([readonly]) {
+  border-bottom: 1px solid #214188 !important;
+  box-shadow: 0 1px 0 0 #214188 !important;
+}
+
 thead, nav, .card-header, .navbar-nav .dropdown-menu .dropdown-item {
   background: #214188 !important;
   color: white !important;

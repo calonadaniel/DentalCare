@@ -3,9 +3,9 @@
 
     <div class="section" >
         <div class="container" >
-            <div class="row my-3 mr-auto ml-auto">
+            <div class="row my-3 d-flex justify-content-center active-search ">
                 <i class="fas fa-search fa-2x " aria-hidden="true"></i>
-                <input style="border:none;" type="text" id="myInput" onkeyup="myFunction()" placeholder="Expediente..." >
+                <input class="w-20 active-search active-line" style="border:none" type="text" id="myInput" onkeyup="myFunction()" placeholder="Expediente..." >
             </div>
             <div class="row d-flex justify-content-start">
                 <i href="#"class="fas fa-user-plus fa-2x mb-2 " data-toggle="modal" data-target="#Modal-add"></i>

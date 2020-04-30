@@ -13,6 +13,12 @@ html, body {
     height:100%;
 }
 
+//search box
+.active-search input.active-line[type=text]:focus:not([readonly]) {
+    border-bottom: 1px solid $color1-dentalcare;
+    box-shadow: 0 1px 0 0 $color1-dentalcare;
+  }
+
 
 thead, nav, .card-header, .navbar-nav .dropdown-menu .dropdown-item {
     background:$color1-dentalcare;
