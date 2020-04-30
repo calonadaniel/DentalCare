@@ -2,7 +2,7 @@
 @section('content')
 
     <div class="section" >
-        <div class="container" >
+        <div class="container-fluid" >
             <div class="row my-3 d-flex justify-content-center">
                 <i class="fas fa-search fa-2x " aria-hidden="true"></i>
                 <input style="border:none;" type="text" id="myInput" onkeyup="myFunction()" placeholder="Expediente..." >
@@ -40,8 +40,8 @@
 
                             {{--Ver informacion del expediente--}}
                             <i  
-                            class="fas fa-eye"
-                            href="#"                     
+                            href="#"    
+                            class="fas fa-eye"                 
                             data-toggle="modal" 
                             data-target="#Modal-show" 
                             data-target="#Modal-edit"
@@ -49,7 +49,8 @@
                             ></i>
             
                             {{--Editar informacion del expediente--}}
-                            <i 
+                            <i
+                            href="#"
                             class="far fa-edit"
                             data-toggle="modal" 
                             data-target="#Modal-edit"
@@ -57,7 +58,8 @@
                             ></i>
                 
                             {{--Borrar el expediente--}}
-                            <i href="#"  
+                            <i 
+                            href="#"  
                             class="fas fa-trash-alt" 
                             data-toggle="modal" 
                             data-target="#Modal-delete"
