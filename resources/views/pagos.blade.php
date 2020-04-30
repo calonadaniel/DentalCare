@@ -3,10 +3,7 @@
 
 <section>
   <div class="container">
-    <div class="row my-3 d-flex justify-content-center ml-5">
-      <i class="fas fa-search fa-2x " aria-hidden="true"></i>
-      <input style="border:none;" type="text" id="myInput" onkeyup="myFunction()" placeholder="Pagos..." >
-    </div>
+    @include('components.searchbar',['placeholder'=> "Pago..."])
     <div class="row d-flex justify-content-start">
         <i class="fas fa-money-check-alt fa-2x mb-2 " data-toggle="modal" data-target="#Modal-pago-add"></i>
     </div>

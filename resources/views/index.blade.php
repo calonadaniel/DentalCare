@@ -2,11 +2,8 @@
 @section('content')
 
     <div class="section" >
-        <div class="container" >
-            <div class="row my-3 d-flex justify-content-center active-search">
-                <i class="fas fa-search fa-2x " aria-hidden="true"></i>
-                <input class="w-10 active-line" style="border:none; outline:none" type="text" id="myInput" onkeyup="myFunction()" placeholder="Expediente..." >
-            </div>
+        <div class="container">
+            @include('components.searchbar',['placeholder'=> "Expediente..."])
             <div class="row d-flex justify-content-start">
                 <i href="#"class="fas fa-user-plus fa-2x mb-2 " data-toggle="modal" data-target="#Modal-add"></i>
             </div>
