@@ -3,7 +3,7 @@
 
     <div class="section" >
         <div class="container">
-            @include('components.searchbar',['placeholder'=> "Expediente..."])
+            @include('components.searchbar',['placeholder'=> "Buscar Expediente..."])
             <div class="row d-flex justify-content-start">
                 <i href="#"class="fas fa-user-plus fa-2x mb-2 " data-toggle="modal" data-target="#Modal-add"></i>
             </div>

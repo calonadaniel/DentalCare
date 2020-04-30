@@ -3,7 +3,7 @@
 
 <section>
   <div class="container">
-    @include('components.searchbar',['placeholder'=> "Pago..."])
+    @include('components.searchbar',['placeholder'=> "Buscar Pago..."])
     <div class="row d-flex justify-content-start">
         <i class="fas fa-money-check-alt fa-2x mb-2 " data-toggle="modal" data-target="#Modal-pago-add"></i>
     </div>
@@ -26,7 +26,7 @@
             <th scope="row">{{++$num}}</th>
             <td>{{$pacientes->nombre}}</td>
             <td>{{$pacientes->apellido}}</td>
-            <td>
+            <td class="text-center">
                 {{--Ver detalles del plan de pago
                 <a href=""  class="btn btn-success btn-sm text-center" 
                 data-toggle="modal" 
@@ -35,7 +35,7 @@
                 data-prima_inicial="{{$pacientes->prima_inicial}}"
                 data-costo_tratamiento="{{$pacientes->costo_tratamiento}}"
                 >Consultar Historial de pagos</a> --}}
-                <a class="btn btn-block mt-2 fas fa-history fa-1x" 
+                <a class="fas fa-history fa-1x" 
                 href="pagos-{{$pacientes->id_expediente}}" 
                 role="button"></a>
             </td>       

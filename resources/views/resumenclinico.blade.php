@@ -3,7 +3,7 @@
 
 <section>
     <div class="container">
-      @include('components.searchbar',['placeholder'=> "Resumen Clinico..."])
+      @include('components.searchbar',['placeholder'=> "Buscar Resumen Clinico..."])
       <div class="row d-flex justify-content-start">
           <i class="fas fa-file-medical fa-2x mb-2 " data-toggle="modal" data-target="#Modal-resumenclinico-add"></i>
       </div>
@@ -26,8 +26,8 @@
               <th scope="row">{{++$num}}</th>
               <td>{{$pacientes->nombre}}</td>
               <td>{{$pacientes->apellido}}</td>
-              <td>
-                  <a class="btn btn-block mt-2 fas fa-list-ul fa-1x" 
+              <td class="text-center">
+                  <a class="fas fa-list-ul fa-1x" 
                   href="resumenclinico-{{$pacientes->id_expediente}}" 
                   role="button"></a>
               </td>       
