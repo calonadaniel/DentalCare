@@ -3,12 +3,12 @@
 
     <div class="section" >
         <div class="container" >
-            <div class="row my-3 ml-auto mr-auto">
-                <i class="fas fa-search fa-2x " aria-hidden="true" placeholder="Expediente..."></i>
-                <input style="border:none;" type="text" id="myInput" onkeyup="myFunction()"  >
+            <div class="row my-3 mr-auto ml-auto">
+                <i class="fas fa-search fa-2x " aria-hidden="true"></i>
+                <input style="border:none;" type="text" id="myInput" onkeyup="myFunction()" placeholder="Expediente..." >
             </div>
             <div class="row d-flex justify-content-start">
-                <i href="#" class="fas fa-user-plus fa-2x mb-2 " data-toggle="modal" data-target="#Modal-add"></i>
+                <i href="#"class="fas fa-user-plus fa-2x mb-2 " data-toggle="modal" data-target="#Modal-add"></i>
             </div>
             <div class="row">
                 <table class="table table-bordered table-sm table-hover" id="myTable">
@@ -39,9 +39,9 @@
                         <td class="text-center">
 
                             {{--Ver informacion del expediente--}}
-                            <i  
-                            href="#"    
-                            class="fas fa-eye"                 
+                            <i
+                            href="#"  
+                            class="fas fa-eye"                     
                             data-toggle="modal" 
                             data-target="#Modal-show" 
                             data-target="#Modal-edit"
@@ -49,7 +49,7 @@
                             ></i>
             
                             {{--Editar informacion del expediente--}}
-                            <i
+                            <i 
                             href="#"
                             class="far fa-edit"
                             data-toggle="modal" 
@@ -58,8 +58,7 @@
                             ></i>
                 
                             {{--Borrar el expediente--}}
-                            <i 
-                            href="#"  
+                            <i href="#"  
                             class="fas fa-trash-alt" 
                             data-toggle="modal" 
                             data-target="#Modal-delete"
