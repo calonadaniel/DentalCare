@@ -12,7 +12,7 @@ Dropzone.options.dropzone =
     timeout: 90000,
     autoProcessQueue: false,
     parallelUploads: 5,
-    //maxFiles : 5,
+    maxFiles : 5,
     renameFile: function (file) {
         var dt = new Date();
         var time = dt.getTime();
