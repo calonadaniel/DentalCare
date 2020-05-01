@@ -9,6 +9,10 @@ use Illuminate\Http\Request;
 
 class HistorialresumenclinicoController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
     public function index(Request $request, $id_expediente)
     {
  

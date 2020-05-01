@@ -9,6 +9,10 @@ use Image;
 use File;
 class FotosController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
     /**
      * Display a listing of the resource.
      *
@@ -77,39 +81,7 @@ class FotosController extends Controller
         );
 
         fotos::create($fotos);
-
-        /*Resmush Compressor. The issue all images uploaded and compressed where with bad orientation but 
-        everythig else worked*/
-        //Compress Image Code Here 
-        /*$filepath = public_path('images/'.$id_expediente.'/'.$imageName);
-        $mime = mime_content_type($filepath);
-        $output = new \CURLFile($filepath, $mime, $imageName);
-        $data = ["files" => $output];
-        
-        $ch = curl_init();
-        curl_setopt($ch, CURLOPT_URL, 'http://api.resmush.it/?qlty=15');
-        curl_setopt($ch, CURLOPT_URL, 'http://api.resmush.it/?exif=true');
-        curl_setopt($ch, CURLOPT_POST,1);
-        curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
-        curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, 9);
-        curl_setopt($ch, CURLOPT_POSTFIELDS, $data);
-        $result = curl_exec($ch);
-        if (curl_errno($ch)) {
-            $result = curl_error($ch);
-        }
-        curl_close ($ch);
-        
-        $arr_result = json_decode($result);
-        
-        // store the optimized version of the image
-        $ch = curl_init($arr_result->dest);
-        $fp = fopen($filepath, 'wb');
-        curl_setopt($ch, CURLOPT_FILE, $fp);
-        curl_setopt($ch, CURLOPT_HEADER, 0);
-        curl_exec($ch);
-        curl_close($ch);
-        fclose($fp); */        
-
+        return response()->json(['success' => $imageName]);
         //Using TinyJPG-PNG php library. Max of 500 per month.
         /*$filepath = public_path('images/'.$id_expediente.'/'.$imageName);
         try {
@@ -132,7 +104,6 @@ class FotosController extends Controller
             // Something else went wrong, unrelated to the Tinify API.
             return redirect()->route('fotos.index',$id_expediente)->with('error', $e->getMessage());
         } */
-        return response()->json(['success' => $imageName]);
         //return redirect()->route('fotos.index',$id_expediente);
         /*$imageUpload = new Fotos();
         $imageUpload->nombre = $imageName;

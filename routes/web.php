@@ -10,11 +10,11 @@
 | contains the "web" middleware group. Now create something great!
 |
 
-
+*/
 Route::get('/', function () {
-    return view('index');
-}); */
-Route::get('/','ExpedienteController@index')->name('home');
+    return redirect('login');
+}); 
+//Route::get('/', 'ExpedienteController@index')->name('home');
 
 Route::get('pagos-{id_expediente}','HistorialpagosController@index')->name('historialpagos.index');
 Route::get('pdf-{id_expediente}','HistorialpagosController@pdf')->name('historialpagos.pdf');

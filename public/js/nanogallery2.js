@@ -58,8 +58,8 @@ jQuery('#btn_del').on('click', function() {
   $("#nanogallery2").nanogallery2('resize');
 });
 
-// switch selection mode on/off en teoria no lo ocupo
+/* switch selection mode on/off en teoria no lo ocupo
 jQuery('#btn_select_mode').on('click', function() {
   var b = !$('#nanogallery2').nanogallery2('option', 'thumbnailSelectable');
   $('#nanogallery2').nanogallery2('option', 'thumbnailSelectable', b);
-});
+});*/ 

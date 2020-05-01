@@ -27,7 +27,7 @@ class LoginController extends Controller
      * @var string
      */
 
-     //public const HOME =  '/';
+    //public const HOME =  '/expediente';
     protected $redirectTo = RouteServiceProvider::HOME;
 
     /**

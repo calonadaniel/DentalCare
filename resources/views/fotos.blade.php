@@ -12,7 +12,7 @@
         </div> --}}
         <div class="row d-flex justify-content-center mt-2"> 
           <i href ="#" class="fas fa-plus-circle fa-2x mb-3 " data-toggle="modal" data-target="#Modal-fotos-add" ></i>
-          <i href ="#" class="pl-3 fas fa-trash-alt fa-2x" type="button" href="{{route('fotos.destroy')}}" id="btn_del"></i>
+          <i href ="#" style="" class="pl-3 fas fa-trash-alt fa-2x" type="button" href="{{route('fotos.destroy')}}" id="btn_del"></i>
         </div>
     </div>
 </div>

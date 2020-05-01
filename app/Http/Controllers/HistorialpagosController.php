@@ -9,6 +9,10 @@ use PDF;
 
 class HistorialpagosController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
     public function index(Request $request, $id_expediente)
     {
         /*Lllamo la funcion dando como el parametro id_expediente y lo guardo en la variable data 
