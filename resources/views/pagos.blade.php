@@ -5,7 +5,7 @@
   <div class="container">
     @include('components.searchbar',['placeholder'=> "Buscar Pago..."])
     <div class="row d-flex justify-content-start">
-        <i class="fas fa-money-check-alt fa-2x mb-2 " data-toggle="modal" data-target="#Modal-pago-add"></i>
+        <i href="#" class="fas fa-money-check-alt fa-2x mb-2 " data-toggle="modal" data-target="#Modal-pago-add"></i>
     </div>
     <div class="row">
       <table class="table table-bordered table-sm table-hover" id="myTable">

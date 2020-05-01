@@ -25,7 +25,7 @@
             <h4>Prima Inicial: {{$expediente->prima_inicial}} </h4>
             </div> --}}
             <div class="d-flex justify-content-start my-2">
-              <i class="fas fa-money-check-alt fa-2x " data-toggle="modal" data-target="#Modal-pago-add"></i>
+              <i href="#" class="fas fa-money-check-alt fa-2x " data-toggle="modal" data-target="#Modal-pago-add"></i>
               <a class="fas fa-file-export fa-2x ml-4" 
               href="{{action('HistorialpagosController@pdf', $expediente->id_expediente)}}" 
               role="button" target="_blank"></a>
@@ -59,7 +59,7 @@
                         <td class="text-center">
                 
                             {{--Editar informacion del pago--}}
-                            <i href=""  class="far fa-edit" 
+                            <i href="#"  class="far fa-edit" 
                             data-toggle="modal" 
                             data-target="#Modal-pago-edit"
                             data-id_pago="{{$registros->id_pago}}"
@@ -70,7 +70,7 @@
                             ></i>
                 
                             {{--Borrar el pago--}}
-                            <i href=""  class="fas fa-trash-alt" 
+                            <i href="#"  class="fas fa-trash-alt" 
                             data-toggle="modal" 
                             data-target="#Modal-pago-delete"
                             data-id_pago="{{$registros->id_pago}}"

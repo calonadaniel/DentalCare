@@ -17,7 +17,7 @@
                    {{-- <h5 class="card-title">Primary card title</h5> --}}
                     <p class="card-text ">{{$resumenclinico->detalles}}</p>
 
-                    <i href=""  class="far fa-edit" 
+                    <i href="#" class="far fa-edit" 
                     data-toggle="modal" 
                     data-target="#Modal-resumenclinico-edit"
               
@@ -26,7 +26,7 @@
                     ></i>
         
                     {{--Borrar el resumen--}}
-                    <i href=""  class="fas fa-trash-alt" 
+                    <i href="#"  class="fas fa-trash-alt" 
                     data-toggle="modal" 
                     data-target="#Modal-resumenclinico-delete"
                     data-id_resumen ="{{$resumenclinico->id_resumen}}"
