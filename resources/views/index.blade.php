@@ -171,6 +171,7 @@
                     <div>
                         <input type="hidden" id="delete_id_expediente" name="delete_id_expediente">
                         <p>¿Esta seguro que desea borrar el expediente?</p>
+                        <p> Todos las fotos, pagos e historial clínico asociados a este expediente serán eliminados.</p>
                         <p class="font-weight-bold text-black">Esta operación no puede deshacerse.</p>
                     </div>
                     <div class="modal-footer">

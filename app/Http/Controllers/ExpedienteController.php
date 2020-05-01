@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 use App\expediente;
 use App\fotos;
 use App\pagos;
+use File;
 use App\resumenclinico;
 use Illuminate\Http\Request;
 
@@ -68,8 +69,17 @@ class ExpedienteController extends Controller
      */
     public function destroy(Request $request)
     {
+        $id_expediente = $request->delete_id_expediente;
+
         /* echo "<pre>";print_r($borrar); die;*/
-        $borrarexpediente = expediente::findorFail($request->delete_id_expediente);
+        fotos::where('id_expediente', 'like', $id_expediente)->delete();
+        $path = public_path('images/'.$id_expediente);
+        File::deleteDirectory($path);
+
+        resumenclinico::where('id_expediente', 'like', $id_expediente)->delete();
+        pagos::where('id_expediente', 'like', $id_expediente)->delete();
+
+        $borrarexpediente = expediente::findorFail($id_expediente);
         $borrarexpediente->delete();
         return redirect()->route('expediente.index');
     }
