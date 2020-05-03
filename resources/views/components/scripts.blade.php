@@ -13,8 +13,8 @@
 <!-- Place your kit's code here -->
 <script src="https://kit.fontawesome.com/8171a85772.js" crossorigin="anonymous"></script>
 
-<!--checkbox custom-->
-<script src="./dist/js/bootstrap-checkbox.js" defer></script> 
+<!--checkbox custom--
+<script src="./dist/js/bootstrap-checkbox.js" defer></script>  -->
 
 {{--Script de Modals para ver editar, borrar la informacion de un expediente en la seccion de expediente(index)--}}
 <script src="./js/modal-expedientes.js"></script>
@@ -29,10 +29,13 @@
 <script src="./js/search.js"></script>
 
 {{--Script principal dropzone --}}
-<script src="./dist_dropzone/dropzone.js"></script>
+<script src="./dropzone/min/dropzone.min.js"></script>
 
 {{--Script custom dropzone --}}
 <script src="./js/dropzonecustom.js"></script>
+
+
+{{--NanoGallery required scripts--}}
 
 <!-- jQuery -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js" type="text/javascript"></script>

@@ -62,11 +62,7 @@
                             <i href="#"  class="far fa-edit" 
                             data-toggle="modal" 
                             data-target="#Modal-pago-edit"
-                            data-id_pago="{{$registros->id_pago}}"
-                            data-fecha="{{$registros->fecha}}"
-                            data-cuota="{{$registros->cuota}}"
-                            data-detalles="{{$registros->detalles}}"
-                            data-id_expediente="{{$expediente->id_expediente}}"
+                            @include('components.pagos.pagosdata')
                             ></i>
                 
                             {{--Borrar el pago--}}

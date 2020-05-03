@@ -6,8 +6,8 @@
 <link rel="stylesheet" href="./css/main.min.css">
 
 {{--Estilos de dropzone--}}
-<link rel="stylesheet" href="./dist_dropzone/basic.css">
-<link rel="stylesheet" href="./dist_dropzone/dropzone.css">
+<link rel="stylesheet" href="./dropzone/min/basic.min.css">
+<link rel="stylesheet" href="./dropzone/min/dropzone.min.css">
 
 {{--Parsley --}}
 <link rel="stylesheet" href="./css/parsley.css">
