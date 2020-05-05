@@ -77,7 +77,7 @@ class FotosController extends Controller
         });
 
         //$img->move($path, $imageName);
-        $img->save($path.'/'.$imageName, 70);
+        $img->save($path.'/'.$imageName, 80);
             
         $fotos = array(     
             'id_expediente' => $id_expediente,
