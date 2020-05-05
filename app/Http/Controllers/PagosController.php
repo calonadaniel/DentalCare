@@ -45,10 +45,21 @@ class PagosController extends Controller
     public function store(Request $request)
     {
         $action = "add";
+
+        request()->validate([
+            $action.'_id_expedienteselected' => 'required|integer',
+            //$action.'_id_pago' =>'required|integer', //mejorar en siguiente version esta validacion
+            $action.'_cuota'=> 'required|numeric|digits_between:1,6',
+            $action.'_saldo' => 'nullable|numeric|digits_between:1,6',
+            $action.'_fecha' => 'required|date',
+            $action.'_detalles' => 'nullable|string',
+           
+        ]);
+
         $registro_pago = array(     
             'id_expediente'=>$request->input($action.'_id_expedienteselected'),
-            'id_pago'=> $request->input($action.'_id_pago'),
-            'cuota'=> $request->input($action.'_cuota')?: '0',
+            //'id_pago'=> $request->input($action.'_id_pago'),
+            'cuota'=> $request->input($action.'_cuota'),
             'saldo'=> $request->input($action.'_saldo')?: '0',
             'fecha' => $request->input($action.'_fecha')?: now(),
             'detalles'=> $request->input($action.'_detalles')?: '',

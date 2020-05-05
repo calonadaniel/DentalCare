@@ -64,12 +64,20 @@ class HistorialresumenclinicoController extends Controller
     /*Action: ejemplo: add, edit. Con esta funcion evito copiar y pegar el mismo codigo  y solo llamo esta funcion dentro del 
     update y el create o alguna a futuro en caso de ser requerio*/
     public function fillabledata($action, Request $request) {
+
+        request()->validate([
+            $action.'_id_expediente' => 'required|integer',
+            //$action.'_id_resumen' =>'required|integer', //mejorar en siguiente version esta validacion
+            $action.'_fecha' => 'required|date',
+            $action.'_detalles' => 'required|string',
+           
+        ]);
         //Este array es el que se envia para crear y editar regstros clinicos 
         $registro_clinico = array(     
             'id_expediente'=>$request->input($action.'_id_expediente'),
             'id_resumen'=> $request->input($action.'_id_resumen'),
-            'fecha' => $request->input($action.'_fecha')?: '',
-            'detalles'=> $request->input($action.'_detalles')?: '',
+            'fecha' => $request->input($action.'_fecha')?: now(),
+            'detalles'=> $request->input($action.'_detalles'),
             );
         return json_encode($registro_clinico);
     }

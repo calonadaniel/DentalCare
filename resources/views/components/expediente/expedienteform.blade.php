@@ -15,7 +15,7 @@
         <div class="col">
             <div class="col">
                 <label for="edad">Edad:</label>
-                <input type="number" class="form-control" name="{{$action}}_edad" id="{{$action}}_edad" placeholder="" data-parsley-type="number" data-parsley-maxlength="2" data-parsley-required>
+                <input type="number" class="form-control" name="{{$action}}_edad" id="{{$action}}_edad" placeholder="" data-parsley-type="number" data-parsley-maxlength="3" data-parsley-required>
             </div>
         </div>
     </div>
@@ -50,7 +50,7 @@
     <div class="form-row pt-2">
         <div class="col">
             <label for="telefono">Teléfono:</label>
-            <input  class="form-control" name="{{$action}}_telefono" id="{{$action}}_telefono"  placeholder="+504" data-parsley-minlength="8" data-parsley-type="number" data-parsley-minlength="8" data-parsley-required>
+            <input  class="form-control" name="{{$action}}_telefono" id="{{$action}}_telefono"  placeholder="+504" data-parsley-minlength="8" data-parsley-type="number" data-parsley-maxlength="8" data-parsley-minlength="8" data-parsley-required>
         </div>
         <div class="col">
             <label for="sexo">Sexo:</label>

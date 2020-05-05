@@ -43,11 +43,18 @@ class ResumenclinicoController extends Controller
     {
         $action = "add";
 
+        request()->validate([
+            $action.'_id_expedienteselected' => 'required|integer',
+            //$action.'_id_resumen' =>'required|integer', //mejorar en siguiente version esta validacion
+            $action.'_fecha' => 'required|date',
+            $action.'_detalles' => 'required|string',
+           
+        ]);
+
         $registro_clinico = array(   
             /*El input id_expedienteselected no esta en el form base resumenclinico.blade ya que este almacena
             el valor de un slider el cual los otros modales no los debe mostrar*/
             'id_expediente' => $request->input($action.'_id_expedienteselected'),
-            
             'fecha'=> $request->input($action.'_fecha'),
             'detalles'=>$request->input($action.'_detalles'),
         );

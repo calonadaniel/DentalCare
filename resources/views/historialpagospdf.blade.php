@@ -37,7 +37,7 @@
                     role="button" target="_blank"></a>
                     </div> --}}
                     <div class="row">
-                        <table class="table table-sm table-bordered table-hover" >
+                        <table class="table table-sm table-bordered " >
                             <thead>
                             <tr>
                                 <th scope="col">#</th>

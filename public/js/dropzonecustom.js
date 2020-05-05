@@ -6,7 +6,7 @@ Dropzone.options.dropzone =
     dictFileTooBig: "El archivo seleccionado es muy grande ({{filesize}}MiB). Tamaño máximo permitido: {{maxFilesize}}MiB",
     dictCancelUploadConfirmation: "¿Esta seguro que desea cancelar subida de este archivo?",
     dictMaxFilesExceeded: "Maximo de 5 archivos por subida",
-    maxFilesize: 64,
+    maxFilesize: 10,
     acceptedFiles: ".jpeg,.jpg,.png,.gif",
     addRemoveLinks: true,
     timeout: 900000,

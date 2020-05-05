@@ -70,9 +70,14 @@ class ExpedienteController extends Controller
      */
     public function destroy(Request $request)
     {
-        $id_expediente = $request->delete_id_expediente;
+        $action = "delete";
+        request()->validate([
+            $action.'_id_expediente' =>'required',
+        ]);
+        $id_expediente = $request->input($action.'_id_expediente');
 
         /* echo "<pre>";print_r($borrar); die;*/
+        //Primero borro todo lo relacionado a las tablas que dependen del id_expediente
         fotos::where('id_expediente', 'like', $id_expediente)->delete();
         $path = public_path('images/'.$id_expediente);
         File::deleteDirectory($path);
@@ -88,22 +93,60 @@ class ExpedienteController extends Controller
     /*Action: ejemplo: add, edit. Con esta funcion evito copiar y pegar el mismo codigo  y solo llamo esta funcion dentro del 
     update y el create o alguna a futuro en caso de ser requerio*/
     public function fillabledata($action, Request $request) {
+        //Validacion de back-end de los datos 
+        request()->validate([
+            $action.'_nombre' => 'required',
+            $action.'_apellido' => 'required',
+            $action.'_direccion' => 'nullable|string',
+            $action.'_costo_tratamiento' => 'required|numeric|digits_between:1,6',
+            $action.'_prima_inicial' => 'required|numeric|digits_between:1,6',
+
+            $action.'_edad' => 'required|numeric|digits_between:1,3',
+            $action.'_encargado' => 'nullable|string',
+            $action.'_telefono' => 'required|digits_between:8,8', //para numeros extranjeros cambiar
+            $action.'_sexo' =>'required',
+            $action.'_fecha_inicio' => 'required|date',
+            $action.'_higiene' => 'required',
+            $action.'_actividad_cariogenica' => 'required',
+            $action.'_habitos' =>'required',
+
+            $action.'_dentpersuperiorizquierda' => 'nullable|array', $action.'_dentpersuperiorderecha' => 'nullable|array',
+            $action.'_dentperinferiorizquierda' => 'nullable|array', $action.'_dentperinferiorderecha' => 'nullable|array',
+
+            $action.'_denttemsuperiorizquierda' => 'nullable|array', $action.'_denttemsuperiorderecha|array' => 'nullable|array',
+            $action.'_dentteminferiorizquierda' => 'nullable|array', $action.'_dentteminferiorderecha|array' => 'nullable|array',
+
+            $action.'_extraccion_indicada' => 'nullable|array',
+            $action.'_cirugia_impacto' => 'nullable|array',
+            $action.'_dentdetalles' => 'nullable|array',
+            $action.'_arcada_superior' => 'required' ,
+            $action.'_arcada_inferior' => 'required',
+            $action.'_tipo_mordida' => 'required',
+            $action.'_duracion_tratamiento'=> 'required|numeric|digits_between:1,2',
+
+            $action.'_relacionmolar' => 'nullable|array',
+            $action.'_relacioncanino' => 'nullable|array',
+            $action.'_antecedente_familiar' => 'nullable|string',
+        ]);
+        
+ 
+
         //Este array es el que se envia para crear y editar expedientes 
         $expediente = array(     
-            'nombre' => $request->input($action.'_nombre')?: '',
-            'apellido'=> $request->input($action.'_apellido')?: '',
-            'direccion'=> $request->input($action.'_direccion')?: '',
-            'costo_tratamiento'=>$request->input($action.'_costo_tratamiento')?: '',
-            'prima_inicial'=>$request->input($action.'_prima_inicial')?: '',
+            'nombre' => $request->input($action.'_nombre'),
+            'apellido'=> $request->input($action.'_apellido'),
+            'direccion'=> $request->input($action.'_direccion'),
+            'costo_tratamiento'=>$request->input($action.'_costo_tratamiento'),
+            'prima_inicial'=>$request->input($action.'_prima_inicial'),
 
-            'edad'=>$request->input($action.'_edad')?:'',
-            'encargado'=>$request->input($action.'_encargado')?:'',
-            'telefono'=>$request->input($action.'_telefono')?:'',
-            'sexo'=>$request->input($action.'_sexo')?:'',
-            'fecha_inicio'=>$request->input($action.'_fecha_inicio')?:'',
-            'higiene'=>$request->input($action.'_higiene')?:'',
-            'actividad_cariogenica'=>$request->input($action.'_actividad_cariogenica')?:'',
-            'habitos'=>$request->input($action.'_habitos')?:'',
+            'edad'=>$request->input($action.'_edad'),
+            'encargado'=>$request->input($action.'_encargado'),
+            'telefono'=>$request->input($action.'_telefono'),
+            'sexo'=>$request->input($action.'_sexo'),
+            'fecha_inicio'=>$request->input($action.'_fecha_inicio'),
+            'higiene'=>$request->input($action.'_higiene'),
+            'actividad_cariogenica'=>$request->input($action.'_actividad_cariogenica'),
+            'habitos'=>$request->input($action.'_habitos'),
 
             'dentpersuperiorizquierda'=>$request->input($action.'_dentpersuperiorizquierda'), 'dentpersuperiorderecha'=>$request->input($action.'_dentpersuperiorderecha'),
             'dentperinferiorizquierda'=>$request->input($action.'_dentperinferiorizquierda'), 'dentperinferiorderecha'=>$request->input($action.'_dentperinferiorderecha'),
@@ -117,7 +160,6 @@ class ExpedienteController extends Controller
             'arcada_superior'=>$request->input($action.'_arcada_superior'),
             'arcada_inferior'=>$request->input($action.'_arcada_inferior'),
             'tipo_mordida'=>$request->input($action.'_tipo_mordida'),
-            'duracion_tratamiento'=>$request->input($action.'_duracion_tratamiento'),
             'relacionmolar'=>$request->input($action.'_relacionmolar'),
             'duracion_tratamiento'=>$request->input($action.'_duracion_tratamiento'),
             'relacioncanino'=>$request->input($action.'_relacioncanino'),

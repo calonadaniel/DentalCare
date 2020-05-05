@@ -56,6 +56,12 @@ class HistorialpagosController extends Controller
     public function destroy(Request $request)
     {
         $action = "delete";
+
+        request()->validate([
+            $action.'_id_expediente' => 'required|integer',
+            $action.'_id_pago' => 'required|integer',
+        ]);
+
         $id_expediente = $request->input($action.'_id_expediente');
         $id_pago = $request->input($action.'_id_pago');
         
@@ -80,14 +86,25 @@ class HistorialpagosController extends Controller
     /*Action: ejemplo: add, edit. Con esta funcion evito copiar y pegar el mismo codigo  y solo llamo esta funcion dentro del 
     update y el create o alguna a futuro en caso de ser requerio*/
     public function fillabledata(Request $request, $action) {
+
+        request()->validate([
+            $action.'_id_expediente' => 'required|integer',
+            //$action.'_id_pago' =>'required|integer', //mejorar en siguiente version esta validacion
+            $action.'_cuota'=> 'required|numeric|digits_between:1,6',
+            $action.'_saldo' => 'nullable|numeric|digits_between:1,6',
+            $action.'_fecha' => 'required|date',
+            $action.'_detalles' => 'nullable|string',
+           
+        ]);
+
         //Este array es el que se envia para crear y editar pagos 
         $registro_pago = array(     
             'id_expediente'=>$request->input($action.'_id_expediente'),
-            'id_pago'=> $request->input($action.'_id_pago'),
-            'cuota'=> $request->input($action.'_cuota')?: '0',
-            'saldo'=> $request->input($action.'_saldo')?: '0',
+            'id_pago'=> $request->input($action.'_id_pago'),//al no ser no fillable en anadir pago no deberia utilizar este request,
+            'cuota'=> $request->input($action.'_cuota'),
+            'saldo'=> $request->input($action.'_saldo')?: '0', //En un futuro calcularlo
             'fecha' => $request->input($action.'_fecha')?: now(),
-            'detalles'=> $request->input($action.'_detalles')?: '',
+            'detalles'=> $request->input($action.'_detalles')?:'',
             );
         return json_encode($registro_pago);
     }

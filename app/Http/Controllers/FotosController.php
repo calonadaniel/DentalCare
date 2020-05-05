@@ -47,6 +47,11 @@ class FotosController extends Controller
      */
     public function store(Request $request)
     {
+        request()->validate([
+            'id_expediente' => 'required|integer',
+            'file' => 'required|image|max:10240',
+        ]);
+
         $id_expediente = $request->id_expediente;
         
         $image = $request->file('file');
@@ -72,7 +77,7 @@ class FotosController extends Controller
         });
 
         //$img->move($path, $imageName);
-        $img->save($path.'/'.$imageName, 80);
+        $img->save($path.'/'.$imageName, 70);
             
         $fotos = array(     
             'id_expediente' => $id_expediente,
@@ -154,20 +159,11 @@ class FotosController extends Controller
      * @return \Illuminate\Http\Response
      */
 
-
-    public function destroy2(Request $request, $ruta, $fotos)
-    {
-        Fotos::where('nombre', $nombre)->delete();
-        /*$path = public_path() . '/images/' . $filename;*/
-        $path = public_path() .$ruta;
-        if (file_exists($path)) {
-            unlink($path);
-        }
-        return redirect()->route('fotos.index',$id_expediente);
-    }
-
     public function destroy(Request $request )
     {
+        request()->validate([
+            'filename' =>'required|string'
+        ]);
         $filename = $request->get('filename');
         $id_expediente = Fotos::where('nombre', $filename)->value('id_expediente');
         Fotos::where('nombre', $filename)->delete();

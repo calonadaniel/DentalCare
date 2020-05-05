@@ -8,7 +8,7 @@
 <script src="./js/app.js"></script> --}}
 
 {{--Parsley--}}
-<script src="./js/parsley.js"></script>
+<script src="./js/parsley.js"></script> 
 
 <!-- Place your kit's code here -->
 <script src="https://kit.fontawesome.com/8171a85772.js" crossorigin="anonymous"></script>
